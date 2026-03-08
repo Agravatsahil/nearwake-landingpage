@@ -1,0 +1,136 @@
+.footer {
+    background-color: #f8f8f8;
+    /* Soft light gray matching image */
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+    /* Prevent watermark text from bleeding out of footer bounds */
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 280px;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+/* --- Columns --- */
+.brandColumn {
+    flex: 0 0 320px;
+}
+
+.logoWrapper {
+    margin-bottom: 24px;
+}
+
+.logoImage {
+    height: auto;
+    object-fit: contain;
+}
+
+.brandDescription {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 16px;
+}
+
+/* Simple text-based social icons since no SVGs were requested explicitly, matching mockup layout */
+.socialCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #1585FF;
+    color: #1585FF;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.socialCircle:hover {
+    background-color: #1585FF;
+    color: white;
+}
+
+.linksColumn {
+    flex: 0 0 auto;
+    min-width: 140px;
+}
+
+.columnTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 24px;
+}
+
+.linksList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.linksList li a {
+    color: #666;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.linksList li a:hover {
+    color: var(--brand-primary);
+}
+
+
+/* --- Massive Watermark --- */
+.bottomWatermark {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.watermarkImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .footer {
+        padding-top: 60px;
+    }
+
+    .footerContent {
+        flex-direction: column;
+        gap: 40px;
+        padding-bottom: 200px;
+        /* Give room for mobile scaling of the SVG */
+    }
+
+    .brandColumn {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+}

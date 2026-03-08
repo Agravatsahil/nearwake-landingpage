@@ -1,0 +1,147 @@
+.howItWorksSection {
+    padding: 120px 0;
+    background-color: #ffffff;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sectionBadge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: white;
+    border-radius: var(--radius-pill);
+    border: 1px solid #e0e0e0;
+}
+
+.sectionBadge span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.sectionTitle {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+}
+
+.sectionSubtitle {
+    font-size: 20px;
+    color: #666;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stepBox {
+    background: #f4f4f4;
+    border-radius: 20px;
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    height: 600px;
+}
+
+.stepBoxReverse {
+    flex-direction: column-reverse;
+    padding: 34px;
+}
+
+.stepContent {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 40px;
+    /* Ensure content stays at the top while image anchors to bottom */
+    flex-shrink: 0;
+}
+
+.stepBoxReverse .stepContent {
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+
+.stepTitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.stepDescription {
+    font-size: 18px;
+    line-height: 1.2;
+    color: #041527;
+}
+
+.stepImageWrapper {
+    position: relative;
+    width: 100%;
+    /* Scale the phone relative to the container */
+    flex-grow: 1;
+    /* Take up the remaining space */
+    margin: 0 auto;
+    /* Ensure image aligns strictly to the bottom */
+    display: flex;
+    align-items: flex-end;
+}
+
+.stepBoxReverse .stepImageWrapper {
+    align-items: flex-start;
+}
+
+.stepImage {
+    object-fit: contain;
+    object-position: bottom;
+}
+
+.stepBoxReverse .stepImage {
+    object-position: top;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Make the last item span full width on tablet if there are 3 items */
+    .stepBox:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stepBox:last-child {
+        grid-column: auto;
+    }
+
+    .sectionTitle {
+        font-size: 36px;
+    }
+
+    .sectionSubtitle {
+        font-size: 18px;
+    }
+
+    .stepBox {
+        height: 500px;
+    }
+}

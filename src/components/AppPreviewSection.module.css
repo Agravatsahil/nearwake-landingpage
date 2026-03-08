@@ -1,0 +1,96 @@
+.previewSection {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Specific gap requested by user */
+}
+
+.sectionBadge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: white;
+    border-radius: var(--radius-pill);
+    border: 1px solid #e0e0e0;
+}
+
+.sectionBadge span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.sectionTitle {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+}
+
+.sectionSubtitle {
+    font-size: 20px;
+    color: #666;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.screensGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.screenWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.screenWrapper:hover {
+    transform: translateY(-8px);
+}
+
+.screenImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Soft drop shadow mimicking the design image to separate screens from white background */
+    filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.08));
+}
+
+@media (max-width: 1024px) {
+    .screensGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 36px;
+    }
+
+    .sectionSubtitle {
+        font-size: 18px;
+    }
+
+    .screensGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 40px;
+        /* Add some padding so the phone doesn't stretch to edges */
+    }
+}

@@ -1,0 +1,228 @@
+.testimonialSection {
+    padding: 120px 0;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    /* Prevent horizontal scroll bar on the body */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Specific gap requested by user */
+}
+
+.sectionBadge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: white;
+    border-radius: var(--radius-pill);
+    border: 1px solid #e0e0e0;
+}
+
+.sectionBadge span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.sectionTitle {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+}
+
+.layoutWrapper {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    padding-left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+}
+
+/* Left side video */
+.leftColumn {
+    flex: 0 0 32%;
+    /* min-width: 300px; */
+    display: flex;
+}
+
+.videoThumbnail {
+    width: 482px;
+    height: 700px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videoOriginal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.playButton {
+    /* width: 100px; */
+    /* height: 100px; */
+    position: absolute;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.playButton:hover {
+    transform: scale(1.05);
+}
+
+.playCircle {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playCircle img {
+    width: 148px;
+    height: 148px;
+    margin-left: 6px;
+    /* visually center play triangle */
+}
+
+/* Right side cards */
+.rightColumn {
+    flex: 1;
+    min-width: 0;
+    /* Important for flex child to not push parent outwards */
+}
+
+.cardsScrollContainer {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 320px;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 24px;
+    padding-right: max(24px, calc((100vw - 1200px) / 2 + 24px));
+    /* Ensure ending scroll buffer matches layout edge */
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.cardsScrollContainer.activeDrag {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    /* Disable snapping while actively dragging for smoother feel */
+}
+
+.cardsScrollContainer::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.testimonialCard {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    height: 340px;
+    user-select: none;
+    /* Prevent text selection while dragging */
+}
+
+.stars {
+    color: #FFC107;
+    /* Gold color */
+    font-size: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.quote {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 32px;
+    flex-grow: 1;
+    /* Pushes profile block to bottom */
+}
+
+.profileRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profileAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatarImage {
+    object-fit: cover;
+}
+
+.profileDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.profileRole {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .layoutWrapper {
+        flex-direction: column;
+    }
+
+    .leftColumn {
+        width: 100%;
+        height: 600px;
+        /* Fixed height for video on tablet */
+    }
+
+    .cardsScrollContainer {
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 36px;
+    }
+
+    .leftColumn {
+        height: 400px;
+    }
+
+    .testimonialCard {
+        flex: 0 0 280px;
+        padding: 24px;
+    }
+}

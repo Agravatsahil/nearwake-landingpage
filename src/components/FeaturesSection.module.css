@@ -1,0 +1,104 @@
+.featuresSection {
+    padding: 120px 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sectionBadge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: white;
+    border-radius: var(--radius-pill);
+    border: 1px solid #e0e0e0;
+}
+
+.sectionBadge span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.sectionTitle {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+}
+
+.sectionSubtitle {
+    font-size: 20px;
+    color: #666;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.featureBox {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+    /* aspect-ratio: 1 / 1; */
+    height: 320px;
+    justify-content: flex-start;
+}
+
+.featureBox:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    border-color: #e0e0e0;
+}
+
+.iconImage {
+    object-fit: contain;
+    margin-bottom: 24px;
+}
+
+.boxTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.boxDescription {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sectionTitle {
+        font-size: 36px;
+    }
+
+    .sectionSubtitle {
+        font-size: 18px;
+    }
+}

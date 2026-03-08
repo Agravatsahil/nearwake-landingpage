@@ -1,0 +1,116 @@
+.ctaSection {
+    padding: 100px 0;
+    /* Adding the 100px top/bottom padding as requested by the user. */
+    background-color: #ffffff;
+    /* Typically sits on standard white ground before the blue popup */
+}
+
+.ctaBanner {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 462px;
+    max-width: 1472px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.bannerBackground {
+    object-fit: contain;
+    z-index: 0;
+}
+
+.contentWrapper {
+    position: relative;
+    z-index: 1;
+    /* Keep above the absolute positioned background image */
+    padding: 60px;
+    /* Internal content padding */
+    max-width: 600px;
+}
+
+.headline {
+    font-size: 56px;
+    line-height: 1.1;
+    color: #000;
+    margin-bottom: 24px;
+}
+
+.subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+    /* Slightly dimmed from black for hierarchy */
+    margin-bottom: 40px;
+    max-width: 480px;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.storeButtonBox {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.storeButtonBox img {
+    height: 60px;
+    /* Standardize standard button heights */
+    width: auto;
+    display: block;
+}
+
+.storeButtonBox:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive constraints */
+@media (max-width: 1024px) {
+    .contentWrapper {
+        padding: 40px;
+    }
+
+    .headline {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ctaSection {
+        padding: 60px 0;
+    }
+
+    .ctaBanner {
+        height: auto;
+        min-height: 400px;
+        align-items: center;
+        /* Center vertically on mobile */
+        padding: 40px 0;
+        /* Give top/bottom breathing room */
+    }
+
+    .contentWrapper {
+        padding: 32px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .headline {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        margin: 0 auto 32px;
+    }
+
+    .buttonGroup {
+        justify-content: center;
+        flex-direction: column;
+        /* Stack buttons on mobile */
+    }
+}
