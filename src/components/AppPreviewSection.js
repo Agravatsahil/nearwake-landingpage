@@ -1,4 +1,6 @@
+"use client";
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import styles from './AppPreviewSection.module.css';
 import appScreen1 from '../../public/images/app-screen1.png';
 import appScreen2 from '../../public/images/app-screen2.png';
@@ -14,9 +16,15 @@ const screens = [
 
 const AppPreviewSection = () => {
     return (
-        <section className={styles.previewSection}>
+        <section id="app-preview" className={styles.previewSection}>
             <div className={`container ${styles.headerContainer}`}>
-                <div className={styles.header}>
+                <motion.div
+                    className={styles.header}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                >
                     <div className={styles.sectionBadge}>
                         <span>App Preview</span>
                     </div>
@@ -26,21 +34,40 @@ const AppPreviewSection = () => {
                     <p className={styles.sectionSubtitle}>
                         A simple and powerful interface designed to help you travel peacefully and wake up before your destination.
                     </p>
-                </div>
+                </motion.div>
             </div>
 
             <div className={`container ${styles.screensContainer}`}>
-                <div className={styles.screensGrid}>
+                <motion.div
+                    className={styles.screensGrid}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={{
+                        visible: {
+                            transition: {
+                                staggerChildren: 0.15
+                            }
+                        }
+                    }}
+                >
                     {screens.map((screen, index) => (
-                        <div key={index} className={styles.screenWrapper}>
+                        <motion.div
+                            key={index}
+                            className={styles.screenWrapper}
+                            variants={{
+                                hidden: { opacity: 0, y: 30 },
+                                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                            }}
+                        >
                             <Image
                                 src={screen.src}
                                 alt={screen.alt}
                                 className={styles.screenImage}
                             />
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

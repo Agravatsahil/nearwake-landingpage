@@ -46,9 +46,9 @@ const Footer = () => {
                 <div className={styles.linksColumn}>
                     <h4 className={styles.columnTitle}>Quick Links</h4>
                     <ul className={styles.linksList}>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Download</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#app-preview">App Preview</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>

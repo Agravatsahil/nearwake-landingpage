@@ -1,4 +1,6 @@
+"use client";
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import styles from './FeaturesSection.module.css';
 
 const features = [
@@ -36,9 +38,15 @@ const features = [
 
 const FeaturesSection = () => {
     return (
-        <section className={styles.featuresSection}>
+        <section id="features" className={styles.featuresSection}>
             <div className="container">
-                <div className={styles.header}>
+                <motion.div
+                    className={styles.header}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                >
                     <div className={styles.sectionBadge}>
                         <span>Features</span>
                     </div>
@@ -48,11 +56,30 @@ const FeaturesSection = () => {
                     <p className={styles.sectionSubtitle}>
                         Relax during your journey while our app keeps track of the route and alerts you before your destination arrives.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className={styles.grid}>
+                <motion.div
+                    className={styles.grid}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={{
+                        visible: {
+                            transition: {
+                                staggerChildren: 0.1
+                            }
+                        }
+                    }}
+                >
                     {features.map((feature, index) => (
-                        <div key={index} className={styles.featureBox}>
+                        <motion.div
+                            key={index}
+                            className={styles.featureBox}
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                            }}
+                        >
                             <Image
                                 src={feature.icon}
                                 alt={feature.title}
@@ -62,9 +89,9 @@ const FeaturesSection = () => {
                             />
                             <h3 className={styles.boxTitle}>{feature.title}</h3>
                             <p className={styles.boxDescription}>{feature.description}</p>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
