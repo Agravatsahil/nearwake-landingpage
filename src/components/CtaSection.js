@@ -1,6 +1,4 @@
-"use client";
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import styles from './CtaSection.module.css';
 
 import ctaBg from '../../public/images/CTA-bg.png';
@@ -11,13 +9,7 @@ const CtaSection = () => {
     return (
         <section className={styles.ctaSection}>
             <div className="container">
-                <motion.div
-                    className={styles.ctaBanner}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
+                <div className={styles.ctaBanner}>
                     <Image
                         src={ctaBg}
                         alt="CTA Background"
@@ -45,7 +37,7 @@ const CtaSection = () => {
                             </a>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

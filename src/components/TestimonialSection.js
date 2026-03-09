@@ -1,7 +1,5 @@
-"use client";
 import { useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import styles from './TestimonialSection.module.css';
 import videoBg from '../../public/images/video-bg.png';
 import playIcon from '../../public/images/play-icon.svg';
@@ -92,29 +90,17 @@ const TestimonialSection = () => {
     return (
         <section className={styles.testimonialSection}>
             <div className="container">
-                <motion.div
-                    className={styles.header}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                >
+                <div className={styles.header}>
                     <div className={styles.sectionBadge}>
                         <span>Testimonials</span>
                     </div>
                     <h2 className={styles.sectionTitle}>
                         Travel Smarter, Rest Better
                     </h2>
-                </motion.div>
+                </div>
             </div>
 
-            <motion.div
-                className={styles.layoutWrapper}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-            >
+            <div className={styles.layoutWrapper}>
                 <div className={styles.leftColumn}>
                     <div className={styles.videoThumbnail}>
                         <Image
@@ -160,7 +146,7 @@ const TestimonialSection = () => {
                         ))}
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 };

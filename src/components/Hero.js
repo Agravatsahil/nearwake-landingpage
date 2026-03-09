@@ -1,6 +1,4 @@
-"use client";
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -9,12 +7,7 @@ const Hero = () => {
 
 
             <div className={`${styles.container} container`}>
-                <motion.div
-                    className={styles.content}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
+                <div className={styles.content}>
                     <div className={styles.badge}>
                         <span>Smart Travel Companion</span>
                     </div>
@@ -55,14 +48,9 @@ const Hero = () => {
                             <p>Loved by 50,000+ travelers</p>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    className={styles.mockupWrapper}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                >
+                <div className={styles.mockupWrapper}>
                     <Image
                         src="/images/hero-right-mockup.png"
                         alt="NearWake App Mockup"
@@ -71,15 +59,10 @@ const Hero = () => {
                         className={styles.mockup}
                         priority
                     />
-                </motion.div>
+                </div>
             </div>
 
-            <motion.div
-                className={styles.logosStrip}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-            >
+            <div className={styles.logosStrip}>
                 <div className="container">
                     <div className={styles.logosList}>
                         <Image src="/images/logo1.png" alt="Clerk" width={100} height={32} className={styles.partnerLogo} />
@@ -91,7 +74,7 @@ const Hero = () => {
                         <Image src="/images/logog7.png" alt="web.dev" width={100} height={32} className={styles.partnerLogo} />
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 };

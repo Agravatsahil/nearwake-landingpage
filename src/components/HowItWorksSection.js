@@ -1,6 +1,4 @@
-"use client";
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import styles from './HowItWorksSection.module.css';
 
 const steps = [
@@ -25,13 +23,7 @@ const HowItWorksSection = () => {
     return (
         <section id="how-it-works" className={styles.howItWorksSection}>
             <div className="container">
-                <motion.div
-                    className={styles.header}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                >
+                <div className={styles.header}>
                     <div className={styles.sectionBadge}>
                         <span>How It Works</span>
                     </div>
@@ -41,18 +33,11 @@ const HowItWorksSection = () => {
                     <p className={styles.sectionSubtitle}>
                         Getting started is incredibly easy. No complex setup needed.
                     </p>
-                </motion.div>
+                </div>
 
                 <div className={styles.grid}>
                     {steps.map((step, index) => (
-                        <motion.div
-                            key={index}
-                            className={`${styles.stepBox} ${index === 1 ? styles.stepBoxReverse : ''}`}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.7, delay: index * 0.2 }}
-                        >
+                        <div key={index} className={`${styles.stepBox} ${index === 1 ? styles.stepBoxReverse : ''}`}>
                             <div className={styles.stepContent}>
                                 <h3 className={styles.stepTitle}>{step.title}</h3>
                                 <p className={styles.stepDescription}>{step.description}</p>
@@ -65,7 +50,7 @@ const HowItWorksSection = () => {
                                     className={styles.stepImage}
                                 />
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

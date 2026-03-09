@@ -1,5 +1,3 @@
-"use client";
-import { motion } from 'framer-motion';
 import styles from './StatsSection.module.css';
 
 const stats = [
@@ -25,13 +23,7 @@ const StatsSection = () => {
     return (
         <section className={styles.statsSection}>
             <div className="container">
-                <motion.div
-                    className={styles.bannerWrapper}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                >
+                <div className={styles.bannerWrapper}>
                     <div className={styles.statsGrid}>
                         {stats.map((stat, index) => (
                             <div key={index} className={styles.statBox}>
@@ -40,7 +32,7 @@ const StatsSection = () => {
                             </div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );
