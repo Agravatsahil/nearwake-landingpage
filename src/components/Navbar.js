@@ -1,12 +1,10 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
-import { useLenis } from 'lenis/react';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const lenis = useLenis();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -15,10 +13,10 @@ const Navbar = () => {
     const handleScroll = (e, target) => {
         e.preventDefault();
         setIsOpen(false);
-        if (lenis) {
-            lenis.scrollTo(target);
-        } else {
-            document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.querySelector(target);
+        if (element) {
+            // Lenis will intercept this native scroll thanks to how it works globally
+            element.scrollIntoView({ behavior: 'smooth' });
         }
     };
 

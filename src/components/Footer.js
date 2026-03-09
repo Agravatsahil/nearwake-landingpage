@@ -1,6 +1,5 @@
 "use client";
 import Image from 'next/image';
-import { useLenis } from 'lenis/react';
 import styles from './Footer.module.css';
 
 import logo from '../../public/images/logo-final.svg';
@@ -11,14 +10,12 @@ import iconIg from '../../public/images/Social Icons.png';
 import watermarkLogo from '../../public/images/NearWake.svg';
 
 const Footer = () => {
-    const lenis = useLenis();
-
     const handleScroll = (e, target) => {
         e.preventDefault();
-        if (lenis) {
-            lenis.scrollTo(target);
-        } else {
-            document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.querySelector(target);
+        if (element) {
+            // Lenis intercepts native scrollIntoview when running globally
+            element.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
