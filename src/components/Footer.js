@@ -1,4 +1,6 @@
+"use client";
 import Image from 'next/image';
+import { useLenis } from 'lenis/react';
 import styles from './Footer.module.css';
 
 import logo from '../../public/images/logo-final.svg';
@@ -9,6 +11,17 @@ import iconIg from '../../public/images/Social Icons.png';
 import watermarkLogo from '../../public/images/NearWake.svg';
 
 const Footer = () => {
+    const lenis = useLenis();
+
+    const handleScroll = (e, target) => {
+        e.preventDefault();
+        if (lenis) {
+            lenis.scrollTo(target);
+        } else {
+            document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <footer className={styles.footer}>
             <div className={`container ${styles.footerContent}`}>
@@ -46,9 +59,9 @@ const Footer = () => {
                 <div className={styles.linksColumn}>
                     <h4 className={styles.columnTitle}>Quick Links</h4>
                     <ul className={styles.linksList}>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#app-preview">App Preview</a></li>
+                        <li><a href="#features" onClick={(e) => handleScroll(e, '#features')}>Features</a></li>
+                        <li><a href="#how-it-works" onClick={(e) => handleScroll(e, '#how-it-works')}>How It Works</a></li>
+                        <li><a href="#app-preview" onClick={(e) => handleScroll(e, '#app-preview')}>App Preview</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>

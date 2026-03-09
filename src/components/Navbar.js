@@ -1,13 +1,25 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
+import { useLenis } from 'lenis/react';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const lenis = useLenis();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+    };
+
+    const handleScroll = (e, target) => {
+        e.preventDefault();
+        setIsOpen(false);
+        if (lenis) {
+            lenis.scrollTo(target);
+        } else {
+            document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
@@ -24,10 +36,10 @@ const Navbar = () => {
                 </div>
 
                 <div className={`${styles.links} ${isOpen ? styles.activeMobileMenu : ''}`}>
-                    <a href="#features" onClick={() => setIsOpen(false)}>Features</a>
-                    <a href="#how-it-works" onClick={() => setIsOpen(false)}>How Its Work</a>
-                    <a href="#app-preview" onClick={() => setIsOpen(false)}>App Preview</a>
-                    <a href="#use-cases" onClick={() => setIsOpen(false)}>Use Cases</a>
+                    <a href="#features" onClick={(e) => handleScroll(e, '#features')}>Features</a>
+                    <a href="#how-it-works" onClick={(e) => handleScroll(e, '#how-it-works')}>How Its Work</a>
+                    <a href="#app-preview" onClick={(e) => handleScroll(e, '#app-preview')}>App Preview</a>
+                    <a href="#use-cases" onClick={(e) => handleScroll(e, '#use-cases')}>Use Cases</a>
                     {isOpen && (
                         <div className={styles.mobileActions}>
                             <button className={styles.downloadBtn} onClick={() => setIsOpen(false)}>Download App</button>
